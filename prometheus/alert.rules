@@ -1,0 +1,8 @@
+groups:
+- name: promalerts
+  rules:
+
+  # Alert for any instance that is unreachable for >5 minutes.
+  - alert: InstanceDown
+    expr: up == 0
+    for: 1m

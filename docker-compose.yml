@@ -1,0 +1,43 @@
+
+# docker-compose.yml
+version: '3.1'
+services:
+  prometheus:
+    build:
+      context: ./prometheus
+      dockerfile: dockerfile
+    container_name: "prometheus"
+    hostname: "prometheus"
+    ports:
+      - "9090:9090"
+    links:    
+      - techmanyu-service
+
+  grafana:
+    image: grafana/grafana
+    container_name: "grafana"
+    hostname: "grafana"
+    ports:
+      - "3000:3000"
+    links:
+      - prometheus
+      
+  alertmanager:
+    build:
+      context: ./alertmanager
+      dockerfile: dockerfile
+    container_name: "alert-manager"
+    hostname: "alert-manager"
+    command:
+      - '--config.file=/etc/prometheus/alertmanager.yml'
+    ports:
+      - '9093:9093'
+    links:    
+      - prometheus
+  
+  techmanyu-service:
+    image:  techmanyu-service
+    container_name: "techmanyu-service"
+    hostname: "techmanyu-service"
+    ports:
+      - "8080:8080"

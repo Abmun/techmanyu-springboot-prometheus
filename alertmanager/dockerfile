@@ -1,0 +1,6 @@
+FROM prom/alertmanager
+
+LABEL maintainer="admin@techmanyu.com"
+
+# Add in the configuration file from the local directory.
+ADD alertmanager.yml /etc/prometheus/alertmanager.yml

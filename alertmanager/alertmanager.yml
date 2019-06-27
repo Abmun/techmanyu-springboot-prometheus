@@ -1,0 +1,11 @@
+global:
+  slack_api_url: 'https://hooks.slack.com/services'
+
+route:
+  receiver: 'slack_general'
+  group_by: [alertname]
+
+receivers:
+- name: 'slack_general'
+  slack_configs:
+  - channel: '#prometheus-alerts'
