@@ -10,7 +10,7 @@ docker-compose up -d
 
 ---------------------------
 
-Above steps will run techmanyu-service and expose on port 9000
+Above steps will run techmanyu-service and expose on port 8080
 
 Prometheus Metrics Endpoint-
 http://localhost:9000/prometheus or http://techmanyu-service:9000/prometheus
