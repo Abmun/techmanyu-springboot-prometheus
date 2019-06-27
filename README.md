@@ -2,13 +2,10 @@
 
 Steps to run on docker:
 
-//build the solution jar
 mvn clean package
 
-//create image
 docker build -t techmanyu-springboot-prometheus .
 
-//run docker container
 docker-compose up -d
 
 ---------------------------
